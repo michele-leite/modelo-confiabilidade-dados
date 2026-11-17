@@ -1,0 +1,114 @@
+model:
+  id: data-trust-reference-model
+  version: "1.0"
+  description: >
+    Configuração operacional do Modelo de Referência para Avaliação da Confiança
+    em Dados. DQ, REL, GOV, PROV e CTX compõem o score observado. IMP modula a
+    exigência de confiança e não entra diretamente no score.
+  score_scale:
+    min: 0.0
+    max: 1.0
+
+evaluation:
+  criterion_states:
+    PASS: 1
+    FAIL: 0
+    UNKNOWN: null
+
+  # Sprint 2: dimensão com cobertura < 0.67 é insuficientemente evidenciada.
+  min_dimension_coverage: 0.65
+
+  dimensions:
+    DQ:
+      name: Data Quality
+      weight: 0.20
+      criteria:
+        - id: DQ.01
+          name: Completude
+        - id: DQ.02
+          name: Consistência
+        - id: DQ.03
+          name: Validade
+
+    REL:
+      name: Data Reliability
+      weight: 0.20
+      criteria:
+        - id: REL.01
+          name: Freshness
+        - id: REL.02
+          name: Disponibilidade
+        - id: REL.03
+          name: Estabilidade
+
+    GOV:
+      name: Governança
+      weight: 0.20
+      criteria:
+        - id: GOV.01
+          name: Owner
+        - id: GOV.02
+          name: Definição
+        - id: GOV.03
+          name: Stewardship
+
+    PROV:
+      name: Proveniência e Rastreabilidade
+      weight: 0.20
+      criteria:
+        - id: PROV.01
+          name: Fonte
+        - id: PROV.02
+          name: Lineage
+        - id: PROV.03
+          name: Rastreabilidade
+
+    CTX:
+      name: Contexto de Uso
+      weight: 0.20
+      criteria:
+        - id: CTX.01
+          name: Propósito
+        - id: CTX.02
+          name: Fit-for-purpose
+        - id: CTX.03
+          name: Tolerância
+
+  # IMP não compõe o score: define a exigência da decisão.
+  criticality_profiles:
+    I:
+      name: Baixa
+      min_trust_score: 0.60
+      min_coverage_score: 0.60
+    II:
+      name: Moderada
+      min_trust_score: 0.70
+      min_coverage_score: 0.67
+    III:
+      name: Alta
+      min_trust_score: 0.80
+      min_coverage_score: 0.80
+    IV:
+      name: Muito alta
+      min_trust_score: 0.90
+      min_coverage_score: 0.90
+
+  classification:
+    C1:
+      label: Confiança insuficiente
+      description: Score abaixo de 0.60 ou existência de bloqueador em FAIL.
+    C2:
+      label: Confiança restrita
+      description: >
+        Score/cobertura abaixo da exigência contextual ou alguma dimensão
+        insuficientemente evidenciada.
+    C3:
+      label: Confiança adequada
+      description: >
+        Score e cobertura atendem ao contexto, sem bloqueadores, mas não
+        satisfazem simultaneamente os requisitos de C4.
+    C4:
+      label: Confiança elevada
+      description: >
+        Score >= 0.90, cobertura >= 0.90, todas as dimensões observáveis e
+        nenhum bloqueador em FAIL.

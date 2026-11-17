@@ -1,0 +1,16 @@
+context:
+  context_id: "olist-retrospective-analysis"
+  purpose: "Avaliar dados para análise retrospectiva exploratória de pedidos e entregas."
+  criticality: "IV"
+  fit_for_purpose:
+    required_output_grain: "one_row_per_order"
+    required_columns:
+      - "order_id"
+      - "customer_id"
+      - "order_status"
+      - "order_purchase_timestamp"
+      - "item_count"
+      - "item_price_sum"
+      - "freight_sum"
+      - "payment_total"
+  note: "Uso acadêmico retrospectivo; não representa operação online da Olist."

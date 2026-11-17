@@ -1,0 +1,21 @@
+asset:
+  asset_id: "olist.fct_orders"
+  name: "Fato analítica de pedidos Olist"
+  description: "Uma linha por pedido, enriquecida com agregações de itens, pagamentos e avaliações."
+  asset_type: "experimental_analytical_dataset"
+  owner:
+    name: "responsavel_pelo_experimento"
+    declaration_type: "researcher_declared"
+  steward:
+    name: "responsavel_pelo_experimento"
+    declaration_type: "researcher_declared"
+  source:
+    name: "Brazilian E-Commerce Public Dataset by Olist"
+    source_type: "public_historical_dataset"
+    corporate_metadata_verified: false
+  definition_documented: true
+  intended_use: "Análise retrospectiva exploratória de pedidos, pagamentos e entregas."
+  intended_use_documented: true
+  criticality: "IV"
+  criticality_rationale: "Criticidade experimental muito alta, considerando que decisões analíticas baseadas neste ativo podem influenciar indicadores de desempenho, avaliações de processos e decisões de negócio. O nível III é utilizado para testar critérios mais rigorosos de confiança e cobertura no modelo, sem representar uma classificação de risco operacional validada para o dataset Olist."
+  tolerance_documented: true
