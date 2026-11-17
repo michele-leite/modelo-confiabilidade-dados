@@ -1,0 +1,218 @@
+{
+  "asset_id": "olist.fct_orders",
+  "context_id": "olist-retrospective-analysis",
+  "criticality": "IV",
+  "trust_score": 0.9333,
+  "coverage_score": 0.9333,
+  "required_trust_score": 0.9,
+  "required_coverage_score": 0.9,
+  "decision_status": "NOT_ELIGIBLE",
+  "classification": "C1",
+  "dimension_results": {
+    "DQ": {
+      "dimension_id": "DQ",
+      "score": 0.6666666666666666,
+      "coverage": 1.0,
+      "status": "OBSERVABLE",
+      "criteria": [
+        {
+          "criterion_id": "DQ.01",
+          "state": "PASS",
+          "score": 1.0,
+          "blocker": false,
+          "raw_value": 0.9997687070725355,
+          "source": "metrics.json:completeness.value",
+          "explanation": "Valor observado=0.9997687070725355; regra: valor >= 0.98."
+        },
+        {
+          "criterion_id": "DQ.02",
+          "state": "PASS",
+          "score": 1.0,
+          "blocker": false,
+          "raw_value": 0.9952897068847989,
+          "source": "metrics.json:consistency.value",
+          "explanation": "Valor observado=0.9952897068847989; regra: valor >= 0.995."
+        },
+        {
+          "criterion_id": "DQ.03",
+          "state": "FAIL",
+          "score": 0.0,
+          "blocker": true,
+          "raw_value": 0.0,
+          "source": "S4-B: evidencia controlada",
+          "explanation": "Valor observado=0.0; regra: valor >= 0.999."
+        }
+      ]
+    },
+    "REL": {
+      "dimension_id": "REL",
+      "score": 1.0,
+      "coverage": 0.6666666666666666,
+      "status": "OBSERVABLE",
+      "criteria": [
+        {
+          "criterion_id": "REL.01",
+          "state": "UNKNOWN",
+          "score": null,
+          "blocker": false,
+          "raw_value": null,
+          "source": "not_available_in_source",
+          "explanation": "Evidência ausente ou insuficiente."
+        },
+        {
+          "criterion_id": "REL.02",
+          "state": "PASS",
+          "score": 1.0,
+          "blocker": false,
+          "raw_value": 1.0,
+          "source": "runs/*/run_manifest.json:status",
+          "explanation": "Valor observado=1.0; regra: valor >= 0.95."
+        },
+        {
+          "criterion_id": "REL.03",
+          "state": "PASS",
+          "score": 1.0,
+          "blocker": false,
+          "raw_value": true,
+          "source": "comparação de hashes de fct_orders.csv e metrics.json em execuções com mesmos inputs e hashes de código",
+          "explanation": "Valor observado=True; esperado=True."
+        }
+      ]
+    },
+    "GOV": {
+      "dimension_id": "GOV",
+      "score": 1.0,
+      "coverage": 1.0,
+      "status": "OBSERVABLE",
+      "criteria": [
+        {
+          "criterion_id": "GOV.01",
+          "state": "PASS",
+          "score": 1.0,
+          "blocker": false,
+          "raw_value": true,
+          "source": "config/asset_catalog.yaml:asset.owner",
+          "explanation": "Valor observado=True; esperado=True."
+        },
+        {
+          "criterion_id": "GOV.02",
+          "state": "PASS",
+          "score": 1.0,
+          "blocker": false,
+          "raw_value": true,
+          "source": "config/asset_catalog.yaml:asset.definition_documented",
+          "explanation": "Valor observado=True; esperado=True."
+        },
+        {
+          "criterion_id": "GOV.03",
+          "state": "PASS",
+          "score": 1.0,
+          "blocker": false,
+          "raw_value": true,
+          "source": "config/asset_catalog.yaml:asset.steward",
+          "explanation": "Valor observado=True; esperado=True."
+        }
+      ]
+    },
+    "PROV": {
+      "dimension_id": "PROV",
+      "score": 1.0,
+      "coverage": 1.0,
+      "status": "OBSERVABLE",
+      "criteria": [
+        {
+          "criterion_id": "PROV.01",
+          "state": "PASS",
+          "score": 1.0,
+          "blocker": false,
+          "raw_value": true,
+          "source": "audit/audit_summary.json",
+          "explanation": "Valor observado=True; esperado=True."
+        },
+        {
+          "criterion_id": "PROV.02",
+          "state": "PASS",
+          "score": 1.0,
+          "blocker": false,
+          "raw_value": true,
+          "source": "run_manifest.json:stages",
+          "explanation": "Valor observado=True; esperado=True."
+        },
+        {
+          "criterion_id": "PROV.03",
+          "state": "PASS",
+          "score": 1.0,
+          "blocker": false,
+          "raw_value": true,
+          "source": "run_manifest.json + data/fct_orders.csv",
+          "explanation": "Valor observado=True; esperado=True."
+        }
+      ]
+    },
+    "CTX": {
+      "dimension_id": "CTX",
+      "score": 1.0,
+      "coverage": 1.0,
+      "status": "OBSERVABLE",
+      "criteria": [
+        {
+          "criterion_id": "CTX.01",
+          "state": "PASS",
+          "score": 1.0,
+          "blocker": false,
+          "raw_value": true,
+          "source": "config/asset_catalog.yaml:asset.intended_use",
+          "explanation": "Valor observado=True; esperado=True."
+        },
+        {
+          "criterion_id": "CTX.02",
+          "state": "PASS",
+          "score": 1.0,
+          "blocker": false,
+          "raw_value": true,
+          "source": "fct_orders.csv + config/use_case.yaml",
+          "explanation": "Valor observado=True; esperado=True."
+        },
+        {
+          "criterion_id": "CTX.03",
+          "state": "PASS",
+          "score": 1.0,
+          "blocker": false,
+          "raw_value": true,
+          "source": "config/asset_catalog.yaml:asset.tolerance_documented",
+          "explanation": "Valor observado=True; esperado=True."
+        }
+      ]
+    }
+  },
+  "blockers": [
+    "DQ.03"
+  ],
+  "fail_criteria": [
+    "DQ.03"
+  ],
+  "unknown_criteria": [
+    "REL.01"
+  ],
+  "explanation": {
+    "summary": {
+      "trust_score": 0.9333,
+      "coverage_score": 0.9333,
+      "criticality": "IV",
+      "required_trust_score": 0.9,
+      "required_coverage_score": 0.9,
+      "decision_status": "NOT_ELIGIBLE",
+      "classification": "C1"
+    },
+    "blockers": [
+      "DQ.03"
+    ],
+    "fail_criteria": [
+      "DQ.03"
+    ],
+    "unknown_criteria": [
+      "REL.01"
+    ],
+    "insufficient_dimensions": []
+  }
+}

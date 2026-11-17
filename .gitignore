@@ -1,0 +1,15 @@
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.coverage
+.env
+data/raw/*
+!data/raw/README.md
+runs/*
+!runs/.gitkeep
+
+*.rar
+*.zip
+runs/
